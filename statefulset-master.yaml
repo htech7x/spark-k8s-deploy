@@ -3,7 +3,7 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: release-name-spark-master
+  name: spark-master-rev
   namespace: "default"
   labels:
     app.kubernetes.io/name: spark
