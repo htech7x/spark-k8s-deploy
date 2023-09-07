@@ -3,7 +3,7 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: spark-worker-rev-37
+  name: spark-worker-rev-38
   namespace: "default"
   labels:
     app.kubernetes.io/name: spark
