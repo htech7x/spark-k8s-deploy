@@ -1,0 +1,30 @@
+---
+# Source: spark/templates/svc-master.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: release-name-spark-master-svc
+  namespace: "default"
+  labels:
+    app.kubernetes.io/name: spark
+    helm.sh/chart: spark-7.1.1
+    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/component: master
+spec:
+  type: ClusterIP
+  sessionAffinity: None
+  ports:
+    - port: 7077
+      targetPort: cluster
+      name: cluster
+      nodePort: null
+    - port: 80
+      targetPort: http
+      name: http
+      protocol: TCP
+      nodePort: null
+  selector:
+    app.kubernetes.io/name: spark
+    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/component: master
